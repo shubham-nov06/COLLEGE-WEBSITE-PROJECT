@@ -1,7 +1,6 @@
 #include <stdio.h>
 int main()
 {
-
     int a = 11;
 
     printf("Initial value : %d \n", a);

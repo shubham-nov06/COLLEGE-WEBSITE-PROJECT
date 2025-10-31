@@ -1,0 +1,52 @@
+ /* Style sheet for Level 1 */
+
+ * {
+     /* here * is used as universal selector */
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+
+ #h1 {
+     text-align: center;
+     color: green;
+     text-decoration: blue wavy overline;
+     text-decoration: wavy underline;
+ }
+
+ #h1 {
+     text-decoration: blue wavy overline;
+     /* we can only use one underline at a time not 2 underlines */
+ }
+
+ #h1 {
+     font-weight: 100;
+ }
+
+ #h2 {
+     font-weight: 100
+ }
+
+ #h3 {
+     font-size: 60;
+     font-weight: lighter;
+ }
+
+ p {
+
+     text-align: center;
+     color: blue;
+     text-decoration: underline;
+ }
+
+ button {
+     text-decoration: blue dotted;
+     color: grey;
+     background-color: pink;
+ }
+
+ #outer {
+     font-size: 25px;
+ }
+
+ #inner {
+     font-size: 10px;
+ }

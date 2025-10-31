@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Classroom Scheduler</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { 
+    font-family: Arial, sans-serif; 
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb); /* gradient background */
+}
+.animate-fadeIn { animation: fadeIn 0.5s ease-in-out; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.modal { transition: opacity 0.3s ease; }
+.modal-backdrop { transition: opacity 0.3s ease; }
+.timetable td { transition: background-color 0.2s; }
+
+/* Subject Colors */
+.subject-Mathematics { background-color: #fefcbf; }
+.subject-Physics { background-color: #bee3f8; }
+.subject-Chemistry { background-color: #c6f6d5; }
+.subject-Biology { background-color: #fed7e2; }
+.subject-Computer-Science { background-color: #e9d8fd; }
+.subject-English { background-color: #e6fffa; }
+.subject-History { background-color: #fff7bc; }
+
+.today-highlight {
+    border: 2px solid #ff6b6b;
+    background-color: #fff1f1;
+    padding: 10px;
+    border-radius: 8px;
+}
+</style>
+</head>
+<body class="min-h-screen flex flex-col items-center p-4">
+
+<h1 class="text-3xl font-bold mb-6 animate-fadeIn text-gray-800 drop-shadow-lg">Smart Classroom Scheduler</h1>
+
+<!-- Login Section -->
+<div id="loginSection" class="bg-gradient-to-r from-blue-500 to-purple-500 p-8 rounded-2xl shadow-2xl w-full max-w-md animate-fadeIn">
+    <h2 class="text-3xl font-extrabold mb-6 text-white text-center drop-shadow-lg">Welcome Back</h2>
+    <div class="bg-white p-6 rounded-xl shadow-lg">
+        <h3 class="text-xl font-semibold mb-4 text-center text-gray-700">Login to Scheduler</h3>
+        <select id="roleSelect" class="w-full p-3 border rounded-lg mb-4 bg-gray-50 focus:ring-2 focus:ring-blue-400 focus:outline-none transition">
+            <option value="">Select Role</option>
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+            <option value="admin">Admin</option>
+        </select>
+        <input type="text" id="userName" placeholder="Enter Your Name" class="w-full p-3 border rounded-lg mb-4 bg-gray-50 focus:ring-2 focus:ring-blue-400 focus:outline-none transition">
+        <input type="text" id="rollNumber" placeholder="Roll Number" class="w-full p-3 border rounded-lg mb-4 hidden focus:ring-2 focus:ring-blue-400 focus:outline-none transition">
+        <button onclick="submitLogin()" class="w-full bg-blue-500 text-white p-3 rounded-lg font-semibold hover:bg-blue-600 hover:scale-105 transform transition duration-300 shadow-md">Login</button>
+    </div>
+</div>
+
+<!-- Timetable Section -->
+<div id="timetableSection" class="bg-white p-6 rounded-xl shadow-md w-full max-w-5xl hidden animate-fadeIn mt-6">
+    <div class="flex justify-between items-center mb-4">
+        <h2 id="timetableTitle" class="text-xl font-bold"></h2>
+        <button onclick="logout()" class="bg-red-500 text-white p-2 rounded hover:bg-red-600">Logout</button>
+    </div>
+
+    <!-- Today's Classes -->
+    <div id="todaySchedule" class="mb-4 hidden">
+        <h3 class="font-bold mb-1">Today's Schedule</h3>
+        <div id="todayClasses" class="today-highlight"></div>
+    </div>
+
+    <!-- Add Class Button for Teachers/Admin -->
+    <button id="addClassBtn" onclick="openAddModal()" class="hidden mb-4 bg-green-500 text-white p-2 rounded hover:bg-green-600">Add Class</button>
+
+    <!-- Timetable -->
+    <div class="overflow-x-auto rounded-lg border border-gray-200">
+        <table class="w-full border-collapse">
+            <thead>
+                <tr class="bg-gray-300">
+                    <th class="p-2">Time</th>
+                    <th class="p-2">Monday</th>
+                    <th class="p-2">Tuesday</th>
+                    <th class="p-2">Wednesday</th>
+                    <th class="p-2">Thursday</th>
+                    <th class="p-2">Friday</th>
+                </tr>
+            </thead>
+            <tbody id="timetableBody"></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Add Class Modal -->
+<div id="addModal" class="modal fixed inset-0 flex items-center justify-center hidden">
+    <div class="modal-backdrop absolute inset-0 bg-black opacity-50"></div>
+    <div class="bg-white p-6 rounded-xl shadow-md w-full max-w-md relative z-10 animate-fadeIn">
+        <h3 class="text-lg font-bold mb-3">Add Class</h3>
+        <select id="subject" class="w-full p-2 border rounded mb-2" onchange="autoFillTeacher()">
+            <option value="">Select Subject</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Biology">Biology</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="English">English</option>
+            <option value="History">History</option>
+        </select>
+        <input type="text" id="teacher" class="w-full p-2 border rounded mb-2" readonly>
+        <select id="time" class="w-full p-2 border rounded mb-2">
+            <option value="">Select Time</option>
+            <option value="09:00-10:00">09:00-10:00</option>
+            <option value="10:00-11:00">10:00-11:00</option>
+            <option value="11:00-12:00">11:00-12:00</option>
+            <option value="12:00-13:00">12:00-13:00</option>
+        </select>
+        <select id="day" class="w-full p-2 border rounded mb-2">
+            <option value="">Select Day</option>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+        </select>
+        <select id="room" class="w-full p-2 border rounded mb-2">
+            <option value="">Select Room</option>
+            <option value="A101">Room A101</option>
+            <option value="B204">Room B204</option>
+            <option value="C305">Room C305</option>
+            <option value="D102">Room D102</option>
+        </select>
+        <div class="flex justify-end mt-3">
+            <button onclick="closeModal()" class="bg-gray-300 p-2 rounded mr-2 hover:bg-gray-400">Cancel</button>
+            <button onclick="saveClass()" class="bg-green-500 text-white p-2 rounded hover:bg-green-600">Save</button>
+        </div>
+    </div>
+</div>
+
+<script>
+let timetable = JSON.parse(localStorage.getItem("timetable")) || {
+    "Monday":[{subject:"Mathematics", teacher:"Shubham Dogra", time:"09:00-10:00", room:"A101"}],
+    "Tuesday":[{subject:"Physics", teacher:"Ayush Chobhyal", time:"10:00-11:00", room:"B204"}],
+    "Wednesday":[{subject:"Chemistry", teacher:"Dr. Chinky", time:"09:00-10:00", room:"C305"}],
+    "Thursday":[{subject:"Computer Science", teacher:"Er. Anjana", time:"09:00-10:00", room:"C305"}],
+    "Friday":[{subject:"English", teacher:"Dr. Kavita", time:"10:00-11:00", room:"D102"}]
+};
+
+let currentUser = "";
+let currentRole = "";
+
+function autoFillTeacher(){
+    const subject = document.getElementById("subject").value;
+    const teacherField = document.getElementById("teacher");
+    const teacherMap = {
+        "Mathematics": "Shubham Dogra",
+        "Physics": "Ayush Chobhyal",
+        "Chemistry": "Dr. Chinky",
+        "Computer Science": "Er. Anjana",
+        "English": "Dr. Kavita",
+        "Biology": "Unknown Biology Teacher",
+        "History": "Unknown History Teacher"
+    };
+    teacherField.value = teacherMap[subject] || "";
+}
+
+function submitLogin(){
+    const role = document.getElementById("roleSelect").value;
+    const name = document.getElementById("userName").value.trim();
+    const roll = document.getElementById("rollNumber").value.trim();
+    if(!role || !name){ alert("Please select a role and enter your name."); return; }
+    if(role === "student" && !roll){ alert("Please enter your roll number."); return; }
+    currentUser = name;
+    currentRole = role;
+    document.getElementById("loginSection").classList.add("hidden");
+    document.getElementById("timetableSection").classList.remove("hidden");
+    document.getElementById("timetableTitle").innerText = Welcome ${name} (${role});
+    if(role === "teacher" || role === "admin") document.getElementById("addClassBtn").classList.remove("hidden");
+    renderTimetable();
+    showTodaySchedule();
+}
+
+function logout(){ 
+    localStorage.setItem("timetable", JSON.stringify(timetable));
+    location.reload(); 
+}
+
+function renderTimetable(){
+    const tbody = document.getElementById("timetableBody");
+    tbody.innerHTML = "";
+    const times = ["09:00-10:00","10:00-11:00","11:00-12:00","12:00-13:00"];
+    const days = ["Monday","Tuesday","Wednesday","Thursday","Friday"];
+    times.forEach(time=>{
+        const tr = document.createElement("tr");
+        const tdTime = document.createElement("td");
+        tdTime.classList.add("p-2","font-bold","bg-gray-100");
+        tdTime.innerText = time;
+        tr.appendChild(tdTime);
+        days.forEach(day=>{
+            const td = document.createElement("td");
+            td.classList.add("p-2","text-center","border");
+            const cls = timetable[day]?.find(c => c.time === time);
+            if(cls){
+                td.classList.add(subject-${cls.subject.replace(" ","-")});
+                td.innerHTML = `
+                    <div class="font-semibold">${cls.subject}</div>
+                    <div class="text-xs">${cls.teacher}</div>
+                    <div class="text-xs">(${cls.room})</div>
+                `;
+            } else td.innerHTML = "<span class='text-gray-400 text-sm'>-</span>";
+            tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+    });
+}
+
+function showTodaySchedule(){
+    const todayIndex = new Date().getDay();
+    if(todayIndex === 0 || todayIndex === 6) return;
+    const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    const today = days[todayIndex];
+    const todayClasses = timetable[today] || [];
+    if(todayClasses.length === 0) return;
+    document.getElementById("todaySchedule").classList.remove("hidden");
+    const div = document.getElementById("todayClasses");
+    div.innerHTML = todayClasses.map(c => <div>${c.time} - <strong>${c.subject}</strong> with ${c.teacher} (${c.room})</div>).join("");
+}
+
+function openAddModal(){ 
+    document.getElementById("teacher").value = currentUser; 
+    document.getElementById("addModal").classList.remove("hidden"); 
+}
+
+function closeModal(){ 
+    document.getElementById("addModal").classList.add("hidden"); 
+}
+
+function saveClass(){
+    const subject = document.getElementById("subject").value;
+    const teacher = document.getElementById("teacher").value;
+    const time = document.getElementById("time").value;
+    const day = document.getElementById("day").value;
+    const room = document.getElementById("room").value;
+    if(!subject || !teacher || !time || !day || !room){ alert("Please fill all fields."); return; }
+    const conflict = timetable[day]?.some(c => c.time === time && (c.room === room || c.teacher === teacher));
+    if(conflict){ alert("Conflict detected! This room or teacher is already booked for this time."); return; }
+    if(!timetable[day]) timetable[day] = [];
+    timetable[day].push({subject, teacher, time, room});
+    localStorage.setItem("timetable", JSON.stringify(timetable));
+    renderTimetable();
+    showTodaySchedule();
+    closeModal();
+}
+
+document.getElementById("roleSelect").addEventListener("change",(e)=>{ 
+    document.getElementById("rollNumber").classList.toggle("hidden", e.target.value !== "student"); 
+});
+</script>
+</body>
+</html>

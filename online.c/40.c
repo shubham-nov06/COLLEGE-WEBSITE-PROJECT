@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-int main() {
+int main()
+{
     char name[50];
     int times;
 
@@ -13,7 +14,8 @@ int main() {
     scanf("%d", &times);
 
     // Print the name the specified number of times
-    for(int i = 0; i < times; i++) {
+    for (int i = 0; i < times; i++)
+    {
         printf("%s\n", name);
     }
     return 0;

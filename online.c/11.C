@@ -1,22 +1,23 @@
 #include <stdio.h>
 
-int main() {
+int main()
+{
 
-int a,b,c ;
+    int a, b, c;
 
-printf("a=");
+    printf("a=");
 
-scanf("%d",&a);
+    scanf("%d", &a);
 
-printf("b=");
+    printf("b=");
 
-scanf("%d",&b);
+    scanf("%d", &b);
 
-printf("c=");
-scanf("%d",&c);
+    printf("c=");
+    scanf("%d", &c);
 
-a>b? a>c? printf(" a is greater" ): printf("b is greater") : b>c? printf(" b is greater"):printf(" c is greater ") ;
+    a > b ? a > c ? printf(" a is greater") : printf("b is greater") : b > c ? printf(" b is greater")
+                                                                             : printf(" c is greater ");
 
-return 0;
-
+    return 0;
 }

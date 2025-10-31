@@ -1,14 +1,16 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int main (){
+int main()
+{
 
-int n ;
-printf("Enter the number =");
-scanf("%d" , &n);
+    int n;
+    printf("Enter the number =");
+    scanf("%d", &n);
 
-int i = 0;
-while(i<=n){
-printf("%d \n" , i);
- i++;
-}
+    int i = 0;
+    while (i <= n)
+    {
+        printf("%d \n", i);
+        i++;
+    }
 }

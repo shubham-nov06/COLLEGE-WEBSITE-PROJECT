@@ -1,10 +1,10 @@
-#include<stdio.h>
-int main() {
+#include <stdio.h>
+int main()
+{
 
-int age ;
-printf("enter age ");
-scanf("%d" , &age );
+    int age;
+    printf("enter age ");
+    scanf("%d", &age);
 
-age >=18 ? printf("Adult") : printf("not adult");
-
+    age >= 18 ? printf("Adult") : printf("not adult");
 }

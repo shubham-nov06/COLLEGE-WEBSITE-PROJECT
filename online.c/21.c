@@ -1,16 +1,18 @@
-#include<stdio.h>
-int main(){
+#include <stdio.h>
+int main()
+{
 
-int input ;
-printf("Enter number ");
-scanf("%d" , &input );
+    int input;
+    printf("Enter number ");
+    scanf("%d", &input);
 
-for( int i = input  ; i >= 1 ; i--){
-    for(int j =1 ; j<=i  ; j++ )
+    for (int i = input; i >= 1; i--)
     {
-        printf("*");
+        for (int j = 1; j <= i; j++)
+        {
+            printf("*");
+        }
+        printf("\n");
 
     }
-    printf("\n");
- }
-} 
+}

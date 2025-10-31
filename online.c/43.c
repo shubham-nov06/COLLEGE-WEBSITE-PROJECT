@@ -1,17 +1,13 @@
-#include<stdio.h>
-int main (){
+#include <stdio.h>
+int main()
+{
 
-int age = 22 ; 
-int *ptr = &age ;
-// address 
-printf("%d\n" , age  );
-printf("%d\n" ,*ptr   );
-printf("%d" , *(&age));
+    int age = 22;
+    int *ptr = &age;
+    // address
+    printf("%d\n", age);
+    printf("%d\n", *ptr);
+    printf("%d", *(&age));
 
-return 0 ; 
-
-
-
-
-
+    return 0;
 }

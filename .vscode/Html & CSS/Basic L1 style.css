@@ -1,0 +1,21 @@
+/* Style sheet for Basic level 1 */
+h1 {
+    color: red;
+}
+
+p {
+    color: blue;
+    text-decoration: underline;
+}
+
+button {
+    color: orange we can use multiple type of things after the first declaration;
+    /* is used for comments */
+    background-color: green;
+}
+
+body {
+    background-color: grey;
+    text-decoration: blueviolet;
+
+}

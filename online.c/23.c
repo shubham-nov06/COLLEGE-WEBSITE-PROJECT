@@ -1,17 +1,19 @@
-#include<stdio.h>
-void printHello() ;
-void printGoodbye (); 
-int main () {
-   printHello();
-   printGoodbye();
-   return 0; 
+#include <stdio.h>
+void printHello();
+void printGoodbye();
+int main()
+{
+    printHello();
+    printGoodbye();
+    return 0;
 }
-void printHello(){
+void printHello()
+{
     printf("Hello\n");
-
 }
 
-void printGoodbye() {
-printf("Good bye\n ") ;
-printf("Jai mata di ");
+void printGoodbye()
+{
+    printf("Good bye\n ");
+    printf("Jai mata di ");
 }

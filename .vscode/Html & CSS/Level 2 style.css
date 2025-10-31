@@ -1,0 +1,78 @@
+   /*head {
+    /* height: 30px;
+    width: 6%;
+    background-color: blue; 
+} */
+
+body {
+    /* height: 30px;
+    width: 6%;  */
+    background-color: rgb(99, 99, 46);
+}
+
+
+h1 {
+    border-style: dashed;
+    border-radius: 40%; /* Sets the rounded corners , for circle set it to 50% */
+
+    border-width: 40%; /* Sets the width of the border */
+
+    border-style: solid;  /* Sets border width, style, and color */
+       /* for bw , bs , bc we use only border: 10px , solid , brown; */
+
+    border-color: black;
+    height: 40px;
+
+    background-color: pink; /* Sets the background color */
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    color: red;
+    text-decoration: underline;
+}
+
+#p1 {
+    color: white;
+    text-align: left;
+    text-decoration: wavy;
+}
+
+#p2 {
+    color: rgb(255, 255, 255);
+    text-align: left;
+}
+
+#p3 {
+    color: rgb(255, 255, 255);
+    text-align: left;
+
+}
+
+#p4 {
+    color: white;
+    text-align: left;
+
+}
+
+div {
+    height: 100px;
+    width: 100px;
+    background-color: aqua;
+    border-radius: 40%;
+    border-style: solid;
+    border-color: black;
+     /*     top   right botttom left --> clockwise */
+    padding: 20px 20px  20px   20px;  /* we donot use , in this */
+    margin: 30px  30px  30px   30px;
+}
+
+   
+
+#yo {
+    background-color: pink;
+    display: inline; /* display side ki extra margin ko clear krne ke liye use hota hai */ 
+}
+
+button {
+    background-color: pink;
+}   

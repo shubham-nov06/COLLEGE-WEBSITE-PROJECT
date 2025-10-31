@@ -1,20 +1,26 @@
-#include<stdio.h>
-int main ()
-{
-int array[11];
-int index = 0 ;
+#include <stdio.h>
 
-for(int i=100; i<=120 ; i++){
-    if(i % 2==0){
-        array[index] = i;
-        index++ ;
+int main() {
+    int num, originalNum, reversedNum = 0, remainder;
 
+    // Input the number from the user
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    originalNum = num;
+
+    // Reverse the number
+    while (num != 0) {
+        remainder = num % 10;
+        reversedNum = reversedNum * 10 + remainder;
+        num /= 10;
     }
-     } 
-     for(int i= 0 ; i<index ; i++){
-     printf("%d" , array[i]);
-     return 0;
-     }
-}
 
+    // Check if the original number is equal to the reversed number
+    if (originalNum == reversedNum) {
+        printf("%d is a palindrome.\n", originalNum);
+    } else {
+        printf("%d is not a palindrome.\n", originalNum);
+    }
 
+    return 0;
