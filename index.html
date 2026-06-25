@@ -2,259 +2,282 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Website </title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rayat Bahra University</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" />
 </head>
 
 <body>
-    <section class="header ">
-        <nav>
-            <a href="index.html"> < img src="RBU-Logo-white.png">
-            </a>
-            <div class="nav-links">
-                <i class="fa-solid fa-xmark" oneclick="hideMenu()"></i>
-                <ul>
-                    <li> <a href="">HOME </a> </li>
-                    <li> <a href="">ABOUT </a> </li>
-                    <li> <a href="">COURSE </a> </li>
-                    <li> <a href="">BLOG </a> </li>
-                    <li> <a href=""> CONTACT </a> </li>
 
+    <!-- ===== NAV ===== -->
+    <nav id="navbar">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-rbu">RBU</span>
+            <span class="logo-text">Rayat Bahra University</span>
+        </a>
+        <div class="nav-links" id="navlinks">
+            <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#" class="nav-cta">Contact Us</a></li>
+            </ul>
+        </div>
+        <i class="fa-solid fa-bars" id="menu-icon" onclick="showMenu()"></i>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow reveal">Mohali · Punjab · Est. 2014</p>
+            <h1 class="hero-headline reveal">
+                <span class="line">Shaping Minds,</span>
+                <span class="line gold">Building Futures.</span>
+            </h1>
+            <p class="hero-sub reveal">
+                Rayat Bahra University offers world-class programs across engineering, sciences, law, management, and
+                the arts — preparing graduates to compete and lead on a global stage.
+            </p>
+            <div class="hero-actions reveal">
+                <a href="#" class="btn-primary">Explore Programs</a>
+                <a href="#" class="btn-ghost">Take a Campus Tour</a>
+            </div>
+            <div class="hero-stats reveal">
+                <div class="stat"><span class="stat-num" data-target="25000">0</span><span
+                        class="stat-label">Students</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat"><span class="stat-num" data-target="120">0</span><span
+                        class="stat-label">Programs</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat"><span class="stat-num" data-target="500">0</span><span
+                        class="stat-label">Faculty</span></div>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ===== COURSES ===== -->
+    <section class="section courses-section" id="courses">
+        <div class="section-header reveal">
+            <p class="eyebrow">Academic Excellence</p>
+            <h2>Programs We Offer</h2>
+            <p class="section-sub">From diploma certificates to doctoral research — find your path here.</p>
+        </div>
+        <div class="courses-grid">
+            <div class="course-card reveal">
+                <div class="card-icon"><i class="fa-solid fa-certificate"></i></div>
+                <h3>Diploma &amp; Certificate</h3>
+                <ul>
+                    <li>Diploma in Organic Farming</li>
+                    <li>Diploma in Culinary Arts</li>
+                    <li>Air Cargo Management</li>
+                    <li>Airlines Cabin Crew &amp; Hospitality</li>
+                    <li>Food &amp; Beverage Production</li>
+                    <li>Communication Skills</li>
+                </ul>
+                <a href="#" class="card-link">View all diplomas <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="course-card featured reveal">
+                <div class="card-badge">Most Popular</div>
+                <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h3>Undergraduate Programs</h3>
+                <ul>
+                    <li>B.Tech (Engineering &amp; Computing)</li>
+                    <li>BBA · BCA</li>
+                    <li>B.Sc (Agriculture, Nursing, AHS)</li>
+                    <li>LLB (Law)</li>
+                    <li>B.Pharm</li>
+                    <li>B.Des (Animation &amp; Art)</li>
+                </ul>
+                <a href="#" class="card-link">View all UG courses <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="course-card reveal">
+                <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
+                <h3>Postgraduate Programs</h3>
+                <ul>
+                    <li>M.Tech · MBA · MCA</li>
+                    <li>M.Sc (Various Specializations)</li>
+                    <li>LLM (Law)</li>
+                    <li>M.Pharm</li>
+                    <li>PG Diplomas (Hospital Admin, IPR, HR Law)</li>
+                    <li>Ph.D Research</li>
+                </ul>
+                <a href="#" class="card-link">View all PG courses <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CAMPUS ===== -->
+    <section class="section campus-section" id="campus">
+        <div class="section-header reveal">
+            <p class="eyebrow">Where You'll Study</p>
+            <h2>Our Campuses</h2>
+            <p class="section-sub">Three campuses across Northern India — each with its own character.</p>
+        </div>
+        <div class="campus-grid">
+            <div class="campus-card reveal">
+                <img src="rb.webp" alt="Kharar Campus" loading="lazy" />
+                <div class="campus-overlay">
+                    <div class="campus-info">
+                        <h3>Kharar</h3>
+                        <p>Main campus · Mohali, Punjab</p>
+                        <a href="#" class="campus-btn">Explore →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="campus-card reveal">
+                <img src="b.jpg" alt="Shimla Campus" loading="lazy" />
+                <div class="campus-overlay">
+                    <div class="campus-info">
+                        <h3>Shimla</h3>
+                        <p>Himachal Pradesh</p>
+                        <a href="#" class="campus-btn">Explore →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="campus-card reveal">
+                <img src="hos.jpg" alt="Hoshiarpur Campus" loading="lazy" />
+                <div class="campus-overlay">
+                    <div class="campus-info">
+                        <h3>Hoshiarpur</h3>
+                        <p>Punjab</p>
+                        <a href="#" class="campus-btn">Explore →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FACILITIES ===== -->
+    <section class="section facilities-section" id="facilities">
+        <div class="section-header reveal">
+            <p class="eyebrow">Life on Campus</p>
+            <h2>Our Facilities</h2>
+            <p class="section-sub">Everything you need to learn, grow, and thrive.</p>
+        </div>
+        <div class="facilities-grid">
+            <div class="facility-item reveal">
+                <div class="facility-img-wrap">
+                    <img src="library.png" alt="Library" loading="lazy" />
+                    <div class="facility-num">01</div>
+                </div>
+                <h3>Library</h3>
+                <p>Open 24×7, our library houses thousands of books, journals, and digital resources — a quiet hub for
+                    research and deep study.</p>
+            </div>
+            <div class="facility-item reveal">
+                <div class="facility-img-wrap">
+                    <img src="basketball.png" alt="Sports" loading="lazy" />
+                    <div class="facility-num">02</div>
+                </div>
+                <h3>Sports &amp; Fitness</h3>
+                <p>Modern gym, courts, and one of the largest playgrounds in the region — because a healthy body
+                    sharpens the mind.</p>
+            </div>
+            <div class="facility-item reveal">
+                <div class="facility-img-wrap">
+                    <img src="cafeteria.png" alt="Cafeteria" loading="lazy" />
+                    <div class="facility-num">03</div>
+                </div>
+                <h3>Cafeteria</h3>
+                <p>Nutritious, affordable meals served in a clean and welcoming space. The perfect spot to refuel
+                    between lectures.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section testimonials-section" id="testimonials">
+        <div class="section-header reveal">
+            <p class="eyebrow">Student Voices</p>
+            <h2>What Our Students Say</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal">
+                <div class="quote-mark">"</div>
+                <p>The green environment, modern facilities, and well-maintained infrastructure make every day on campus
+                    feel inspiring.</p>
+                <div class="t-author">
+                    <img src="user1.jpg" alt="Palak" />
+                    <div>
+                        <strong>Palak</strong>
+                        <span>B.Tech, 3rd Year</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="quote-mark">"</div>
+                <p>The university's industry tie-ups are real. My classmates have landed placements at Infosys, Wipro,
+                    and Tech Mahindra — the placements team is exceptional.</p>
+                <div class="t-author">
+                    <img src="user2.jpg" alt="Sujal" />
+                    <div>
+                        <strong>Sujal</strong>
+                        <span>MBA, Final Year</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section reveal">
+        <div class="cta-inner">
+            <p class="eyebrow light">Ready to Begin?</p>
+            <h2>Enroll in World-Class Programs — From Anywhere.</h2>
+            <a href="#" class="btn-primary large">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="footer-logo"><span class="logo-rbu">RBU</span></div>
+                <p>Recognized by UGC, Rayat Bahra University offers flexible, research-led education across engineering,
+                    law, pharmacy, agriculture, management, and more. Established 2014.</p>
+            </div>
+            <div class="footer-links">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
-            <i class="fa-solid fa-bars" oneclick="showMenu()"></i>
-        </nav>
-        <div class="text-box">
-            <h1> World's Biggest University</h1>
-            <p> Rayat Bahra University is a private university located in Mohali, Punjab, India.<br>
-                Established in 2014, it operates under The Rayat-Bahra University Act, 2014 and is part of the Rayat
-                Bahra Group. The university offers a wide range of programs across disciplines such as engineering,
-                pharmaceutical sciences, management, law, agriculture, nursing, and more.
-
-            </p>
-            <a href="" class="hero-btn"> Visit us to know more </a>
-        </div>
-
-    </section>
-
-    <!------Course -->
-
-
-    <section class="course">
-        <h1> Course We offer </h1>
-        <p> Lorem uishhasdhaoh caiodahodhoadnasojhboa dhoiadh</p>
-        <div class="row">
-            <div class="course-col">
-                <h3> Intermediate (Diploma & Certificate Programs) </h3> <br>
-                <p>
-                    - Diploma in Organic Farming <br>
-                    - Diploma in Floriculture and Landscaping<br>
-                    - Diploma in Culinary Arts <br>
-                    - Diploma in Air Cargo Management <br>
-                    - Diploma in Airlines Cabin Crew & Hospitality<br>
-                    - Tour Guiding with License<br>
-                    - Airport & Cargo Operation<br>
-                    - Food & Beverage Production<br>
-                    - Communication Skills<br>
-                </p>
-            </div>
-            <div class="course-col">
-                <h3> Undergraduate (UG) Programs </h3> <br>
-                <p>
-                    - B.Tech (Engineering & Computing)<br>
-                    - BBA (Business Administration)<br>
-                    - BCA (Computer Applications)<br>
-                    - B.Sc (Agriculture, Nursing, Allied Health Sciences)<br>
-                    - LLB (Law)<br>
-                    - B.Pharm (Pharmaceutical Sciences)<br>
-                    - BHMCT (Hotel Management & Catering Technology)<br>
-                    - B.Des (Animation, Art & Design)<br>
-
-
-                </p>
-            </div>
-            <div class="course-col">
-                <h3> Postgraduate (PG) Programs </h3><br>
-                <p>
-                    - M.Tech (Engineering & Computing)<br>
-                    - MBA (Business Administration)<br>
-                    - MCA (Computer Applications)<br>
-                    - M.Sc (Various Specializations)<br>
-                    - LLM (Law)<br>
-                    - M.Pharm (Pharmaceutical Sciences)<br>
-                    - PG Diplomas (Hospital Administration, Foreign Trade, Intellectual Property Rights, Human Rights
-                    Law, and more)<br>
-
-
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- Campus -->
-
-
-    <section class="campus">
-        <h1>Our Global Campus </h1>
-        <p> Lorem uishhasdhaoh caiodahodhoadnasojhboa dhoiadh</p>
-        <div class="row">
-            <div class="campus-col">
-                < img src="rb.webp" alt="london campus">
-                <div class="layer">
-                    <h3> Kharar </h3>
-                </div>
-
-            </div>
-            <div class="campus-col">
-                < img src="b.jpg">
-                <div class="layer">
-                    <h3> Shimla </h3>
-                </div>
-
-            </div>
-            <div class="campus-col">
-                <img src="hos.jpg" alt="london campus">
-                <div class="layer">
-                    <h3> Hoshiarpur</h3>
-                </div>
-
-            </div>
-        </div>
-
-    </section>
-
-    <!----------- Facilities -->
-    <section class="facilities">
-        <h1> Our Facilities </h1>
-        <p> Rayat Bahra University offers a range of facilities to support students academically and personally.
-            <br>Here are some of the key amenities available:.
-        </p>
-        <div class="row">
-            <div class="facilities-col">
-                < img src="library.png">
-                <h3> Library </h3>
-                <p> The library at Rayat Bahra University is a hub of knowledge, offering an extensive collection of
-                    books,
-                    journals, and digital resources. Open 24x7, it provides students with a quiet and comfortable space
-                    for research
-                    and self-study, fostering academic excellence. </p>
-
-            </div>
-            <div class="facilities-col">
-                < img src="basketball.png">
-                <h3> Largest Play Ground </h3>
-                <p> The university gym is equipped with modern fitness machines and facilities, allowing students to
-                    maintain their physical well-being.<br>
-                    It serves as a great place to relieve stress, improve health, and stay active, supporting a balanced
-                    lifestyle alongside academic responsibilities.academic schedules.
-            </div>
-            <div class="facilities-col">
-                < img src="cafeteria.png">
-                <h3> tasty And healthy food </h3>
-                <p> The cafeteria offers a variety of delicious and affordable food options in a clean and welcoming
-                    environment.
-                    It provides students with nutritious meals, making it a perfect spot to relax, socialize, and refuel
-                    during busy academic schedules. </p>
-
-            </div>
-        </div>
-
-
-    </section>
-    <!--     testimonials -->
-
-    <section class="testimonials">
-        <h1> What Our student says </h1>
-        <p> UYYYVU UFU UYUUF UTFY UUYG U U</p>
-        <div class="row">
-            <div class="testimonial-col">
-                <img src="user1.jpg" alt="">
-                <div>
-                    <p>
-
-                        i appreciate the green environment, modern facilities, and well-maintained infrastructure
-
-                    </p>
-                    <h3> Palak </h3>
-
-
-
-                </div>
-            </div>
-            <div class="testimonial-col">
-                <img src="user2.jpg" alt="">
-                <div>
-                    <p>
-                        he university has tie-ups with multiple companies, and students have secured placements with
-                        firms like Infosys, Wipro, and Tech Mahindra.
-
-
-                    </p>
-                    <h3> Sujal </h3>
-
+            <div class="footer-contact">
+                <h5>Get In Touch</h5>
+                <p><i class="fa-solid fa-location-dot"></i> Mohali, Punjab, India</p>
+                <p><i class="fa-solid fa-phone"></i> +91-XXXXXXXXXX</p>
+                <p><i class="fa-solid fa-envelope"></i> admissions@rbu.ac.in</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
-    </section>
-
-
-    <!----------- Call To Action   ---------->
-    <section class="cta">
-        <h1> Enroll for our various cources <br> Anywhere form the world</h1>
-        <a href="" class="hero-btn"> CONTACT US </a>
-
-    </section>
-
-    <!----------- Footer   ---------->
-    <section class="footer">
-        <h4> About US </h4>
-        <p>Rayat Bahra University is a private university in Punjab, India, established in 2014 under the Rayat-Bahra
-            University Act. It is recognized by the University Grants Commission (UGC) and offers a wide range of
-            programs across disciplines such as Engineering, Pharmaceutical Sciences, Dentistry, Management,
-            Hospitality, Education, Sciences, Health, Allied Sciences, Agriculture, Nursing, and Law.
-            <br> The university aims to provide flexible learning systems, allowing students to choose interdisciplinary
-            courses and value-added programs to enhance their employability. It focuses on research, innovation, and
-            industry collaborations, ensuring students gain practical experience to compete in the global market while
-            preserving cultural values.
-
-        </p>
-
-        <div class="icons">
-            <i class="fa fa-facebook "></i>
-            <i class="fa fa-twitter"></i>
-            <i class="fa fa-instagram"></i>
-            <i class="fa fa-linkdin"></i>
-
-
-
+        <div class="footer-bottom">
+            <p>© 2025 Rayat Bahra University · Made with <i class="fa-solid fa-heart"></i> in Punjab</p>
         </div>
-        <p> Made With <i class="fa fa-heart-o">Love </i> </p>
-    </section>
+    </footer>
 
-
-
-
-
-
-
-    <!-------------Javascript for toggle menu --------------------->
-    <script>
-        var navlinks = document.getElementById("navlinks");
-        function showMenu() {
-            navlinks.style.right = "0";
-
-        }
-        function hideMenu() {
-            navlinks.style.right = "-200px";
-
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
