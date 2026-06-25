@@ -70,7 +70,6 @@ img {
 
 #navbar.scrolled {
     background: rgba(10, 15, 46, 0.96);
-    backdrop-filter: blur(12px);
     box-shadow: 0 2px 24px rgba(0, 0, 0, 0.3);
     padding: 12px 6%;
 }
@@ -337,7 +336,6 @@ a.nav-cta::after {
     gap: 32px;
     padding: 28px 40px;
     background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 16px;
     max-width: fit-content;
@@ -661,7 +659,6 @@ a.nav-cta::after {
     margin: 0 auto;
 }
 
-.facility-item {}
 
 .facility-img-wrap {
     position: relative;
